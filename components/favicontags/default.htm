@@ -1,0 +1,46 @@
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        /**
+         * The new HTML code to be injected.
+         * We use default('') to ensure it becomes "" in JS if null.
+         * @type {string}
+         */
+        const newHtmlCode = {{ __SELF__.htmlCode|default('')|json_encode()|raw }};
+
+        /**
+         * The list of CSS selectors for conflicting tags.
+         * We use default([]) to ensure it becomes [] in JS if null.
+         * @type {string[]}
+         */
+        const overlappingMarkups = {{ __SELF__.overlappingMarkups|default([])|json_encode()|raw }};
+
+        /**
+         * Finds and removes any existing favicon tags that conflict with the new ones.
+         */
+        function cleanupExistingTags() {
+            if (Array.isArray(overlappingMarkups) && overlappingMarkups.length > 0) {
+                overlappingMarkups.forEach(function(selector) {
+                    document.head.querySelectorAll(selector).forEach(function(element) {
+                        console.log('RealFavicon Plugin: Removing overlapping tag ->', element);
+                        element.remove();
+                    });
+                });
+            }
+        }
+
+        /**
+         * Injects the new favicon HTML code into the document's <head>.
+         */
+        function injectNewTags() {
+            if (newHtmlCode && newHtmlCode.trim() !== '') {
+                const fragment = document.createRange().createContextualFragment(newHtmlCode);
+                document.head.appendChild(fragment);
+                console.log('RealFavicon Plugin: New favicon tags injected.');
+            }
+        }
+
+        // --- Main Execution ---
+        cleanupExistingTags();
+        injectNewTags();
+    });
+</script>
