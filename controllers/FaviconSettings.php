@@ -153,9 +153,6 @@ class FaviconSettings extends Controller
      */
     public function onScanForOverlaps()
     {
-        // Para depuración, añadimos un log al inicio
-        \Log::info('--- [FINAL DEBUG] Iniciando onScanForOverlaps ---');
-
         $settings = FaviconSetting::instance();
         $theme = Theme::getActiveTheme();
         $findings = [];
@@ -178,7 +175,6 @@ class FaviconSettings extends Controller
             $fileName = $template->getFileName();
             $content = $template->getContent();
 
-            // 1. Encontrar las posiciones de todos los bloques de comentarios (HTML y Twig)
             $commentRanges = [];
             preg_match_all('/|{#.*?#}/s', $content, $commentMatches, PREG_OFFSET_CAPTURE);
             foreach ($commentMatches[0] as $match) {
@@ -186,16 +182,14 @@ class FaviconSettings extends Controller
             }
 
             foreach ($selectorsFromApi as $selector) {
-                // Extrae la parte fundamental del selector, ej: 'link[rel="icon"]'
                 if (preg_match('/^([a-z0-9]+)(\[[^\]]+\])/i', $selector, $mainPart)) {
                     $simpleSelector = $mainPart[1] . $mainPart[2];
 
                     if (preg_match('/^([a-z0-9]+)\[([^=]+)="([^"]+)"\]$/i', $simpleSelector, $parts)) {
-                        $tagName = $parts[1];         // ej: 'link'
-                        $attributeName = $parts[2];  // ej: 'rel'
-                        $attributeValue = $parts[3]; // ej: 'icon'
+                        $tagName = $parts[1];
+                        $attributeName = $parts[2];
+                        $attributeValue = $parts[3];
 
-                        // 2. Encontrar TODAS las etiquetas con el nombre correcto (ej. <link ...>)
                         preg_match_all('/<' . preg_quote($tagName, '/') . '[^>]*>/i', $content, $tagMatches, PREG_OFFSET_CAPTURE);
 
                         foreach ($tagMatches[0] as $tagMatch) {
@@ -203,19 +197,14 @@ class FaviconSettings extends Controller
                             $offset = $tagMatch[1];
 
                             if (preg_match('/\s' . preg_quote($attributeName) . '\s*=\s*["\']' . preg_quote($attributeValue) . '["\']/i', $tag)) {
-                                \Log::info('[FINAL DEBUG] Candidato encontrado: ' . $tag); // Log para ver qué etiquetas pasan este filtro
-
                                 $isCommented = false;
-                                // 4. Verificar si el candidato está dentro de un comentario
                                 foreach ($commentRanges as $range) {
                                     if ($offset >= $range['start'] && $offset < $range['end']) {
                                         $isCommented = true;
-                                        \Log::info('[FINAL DEBUG] Candidato DESCARTADO por estar en comentario.');
                                         break;
                                     }
                                 }
 
-                                // 5. Si pasa todos los filtros, es un hallazgo válido.
                                 if (!$isCommented) {
                                     $lineNumber = substr_count($content, "\n", 0, $offset) + 1;
                                     $lineKey = $fileName . ':' . $lineNumber;
@@ -227,7 +216,6 @@ class FaviconSettings extends Controller
                                             'tag'  => trim($tag),
                                         ];
                                         $foundLines[$lineKey] = true;
-                                        \Log::info('[FINAL DEBUG] ¡HALLAZGO CONFIRMADO Y AÑADIDO!');
                                     }
                                 }
                             }

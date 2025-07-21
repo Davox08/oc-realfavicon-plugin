@@ -21,8 +21,8 @@ class Plugin extends PluginBase
     public function pluginDetails()
     {
         return [
-            'name'        => __('Real Favicon Generator'),
-            'description' => __('Integrates RealFaviconGenerator.net API to generate and manage favicons.'),
+            'name'        => 'Real Favicon Generator',
+            'description' => 'Integrates RealFaviconGenerator.net API to generate and manage favicons.',
             'author'      => 'Davox',
             'icon'        => 'ph ph-star',
         ];
@@ -49,8 +49,8 @@ class Plugin extends PluginBase
     {
         return [
             'davox.realfavicon.access_favicon_settings' => [
-                'tab'   => __('Real Favicon Generator'),
-                'label' => __('Access Real Favicon Generator settings'),
+                'tab'   => 'Real Favicon Generator',
+                'label' => 'Access Real Favicon Generator settings',
             ],
         ];
     }
@@ -64,13 +64,13 @@ class Plugin extends PluginBase
     {
         return [
             'davox_realfavicon' => [
-                'label'       => __('Real Favicon Generator'),
-                'description' => __('Manage favicon generation settings.'),
+                'label'       => 'Real Favicon Generator',
+                'description' => 'Manage favicon generation settings.',
                 'category'    => SettingsManager::CATEGORY_CMS,
                 'icon'        => 'ph ph-star',
                 'url'         => Backend::url('davox/realfavicon/faviconsettings'),
                 'order'       => 600,
-                'keywords'    => __('favicon realfavicon generator logo'),
+                'keywords'    => 'favicon realfavicon generator logo',
                 'permissions' => ['davox.realfavicon.access_favicon_settings'],
                 'size'        => 'large',
             ],

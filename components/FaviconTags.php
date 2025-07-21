@@ -16,7 +16,6 @@ class FaviconTags extends ComponentBase
      * @var string The HTML code for the favicon tags.
      */
     public $htmlCode;
-    public $overlappingMarkups;
 
     /**
      * Returns details about the component.
@@ -26,8 +25,8 @@ class FaviconTags extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => __('Favicon Tags'),
-            'description' => __('Injects the generated favicon HTML tags into your layout.'),
+            'name'        => 'Favicon Tags',
+            'description' => 'Injects the generated favicon HTML tags into your layout.',
         ];
     }
 
@@ -38,6 +37,5 @@ class FaviconTags extends ComponentBase
     {
         $settings = FaviconSetting::instance();
         $this->htmlCode = $settings->html_code;
-        $this->overlappingMarkups = json_decode($settings->overlapping_markups);
     }
 }
