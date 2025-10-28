@@ -1,0 +1,72 @@
+tabs:
+    fields:
+        _api_key_instructions:
+            tab: 'Favicon Generator'
+            type: hint
+            mode: info
+            label: 'API Key Required to Get Started'
+            comment: >
+                To enable favicon generation, you need a free API key from RealFaviconGenerator. If you don't have an account, you can create one and get your key from your dashboard. **[Go to the RealFaviconGenerator Dashboard](https://realfavicongenerator.net/dashboard)** Once you have the key, paste it into the `API Key` field above and click Save.
+            trigger:
+                action: show
+                field: api_key
+                condition: value[]
+        api_key:
+            tab: 'Favicon Generator'
+            label: 'API Key'
+            comment: 'Your API key from RealFaviconGenerator.net'
+            type: sensitive
+            allowCopy: false
+            hideOnTabChange: true
+            span: full
+
+        master_picture:
+            tab: 'Favicon Generator'
+            label: 'Master Picture'
+            comment: 'Upload a high-resolution square image (e.g., 512x512 PNG). This will be used to generate all favicons.'
+            type: fileupload
+            mode: image
+            fileTypes: 'png,jpg,jpeg'
+            span: full
+
+        preview_image_display:
+            tab: 'Favicon Generator'
+            type: partial
+            path: preview_image
+            span: full
+
+        html_code:
+            tab: 'Response'
+            label: 'Favicon HTML Code'
+            comment: 'This HTML code is automatically generated and injected by the component.'
+            type: codeeditor
+            language: html
+            size: large
+            readOnly: true
+            placeholder: 'Generate your favicon to see the HTML code here.'
+            span: full
+            hidden: true
+        
+        overlapping_markups:
+            tab: 'Response'
+            type: codeeditor
+            language: json
+            label: Overlapping Markups Detected
+            comment: 'These are CSS selectors for tags that might already exist in your theme. The component will attempt to avoid duplicating them.'
+            readOnly: true
+            span: full
+            hidden: true
+
+        _scan_results:
+            tab: 'Favicon Generator'
+            type: partial
+            path: scan_results
+
+        version:
+            tab: 'Response'
+            label: 'Generator Version'
+            comment: 'The version of RealFaviconGenerator used for the last generation.'
+            type: text
+            readOnly: true
+            span: full
+            hidden: true
