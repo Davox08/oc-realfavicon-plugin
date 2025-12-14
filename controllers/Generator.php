@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Davox\RealFavicon\Controllers;
 
 use Backend;
@@ -31,7 +33,7 @@ class Generator extends Controller
     {
         try {
             $jsonResultUrl = request()->input('json_result_url');
-            if (!$jsonResultUrl) {
+            if (! $jsonResultUrl) {
                 throw new Exception(__('Invalid callback from API. No JSON result URL found.'));
             }
 
@@ -48,7 +50,7 @@ class Generator extends Controller
             $destinationPath = storage_path('app/media/favicon');
             $zipFilePath = $destinationPath . '/favicon_package.zip';
 
-            if (!File::isDirectory($destinationPath)) {
+            if (! File::isDirectory($destinationPath)) {
                 File::makeDirectory($destinationPath, 0755, true, true);
             }
 

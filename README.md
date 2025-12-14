@@ -6,11 +6,11 @@ Forget about manually creating dozens of different icons. Upload a single master
 
 ## Features
 
-- **Full Integration with RealFaviconGenerator.net API**: Automates the creation of favicons for desktop, iOS, Android, Windows, and more.    
-- **Intuitive Settings Page**: Easily manage your favicon settings from the October CMS backend.    
-- **Automatic Generation**: Creates all required files (`favicon.ico`, `apple-touch-icon.png`, Android icons, etc.) and the `site.webmanifest` file.    
-- **Conflict Scanner**: Includes a tool to scan your theme for existing favicon tags that could cause issues.    
-- **Simple Component**: Easily integrate all the favicon HTML code into your layouts with a single component.        
+- **Full Integration with RealFaviconGenerator.net API**: Automates the creation of favicons for desktop, iOS, Android, Windows, and more.
+- **Intuitive Settings Page**: Easily manage your favicon settings from the October CMS backend.
+- **Automatic Generation**: Creates all required files (`favicon.ico`, `apple-touch-icon.png`, Android icons, etc.) and the `site.webmanifest` file.
+- **Conflict Scanner**: Includes a tool to scan your theme for existing favicon tags that could cause issues.
+- **Simple Component**: Easily integrate all the favicon HTML code into your layouts with a single component.
 
 ## Installation
 
@@ -18,8 +18,8 @@ You can install this plugin from the October CMS Marketplace or using Composer.
 
 ### Via Marketplace
 
-1. Go to the **Settings > System > Plugins** section in the administration panel of your project.    
-2. Search for **"Real Favicon Generator"** by Davox.    
+1. Go to the **Settings > System > Plugins** section in the administration panel of your project.
+2. Search for **"Real Favicon Generator"** by Davox.
 3. Click on the plugin to install it.
 
 ### Via Composer
@@ -36,31 +36,31 @@ Once the plugin is installed, follow these steps to generate your favicons:
 
 #### Step 1: Initial Setup
 
-1. In the administration panel, navigate to **Settings > CMS > Favicon Settings**.    
-2. First, you'll need a free API key. Get your key from your [RealFaviconGenerator Dashboard](https://realfavicongenerator.net/dashboard) and paste it into the **API Key** field.    
-3. Next, upload your **Master Picture**. For the best results, use a square PNG file of at least **512x512 pixels**.    
-4. Click **Save**.    
+1. In the administration panel, navigate to **Settings > CMS > Favicon Settings**.
+2. First, you'll need a free API key. Get your key from your [RealFaviconGenerator Dashboard](https://realfavicongenerator.net/dashboard) and paste it into the **API Key** field.
+3. Next, upload your **Master Picture**. For the best results, use a square PNG file of at least **512x512 pixels**.
+4. Click **Save**.
 
 #### Step 2: Generate Your Favicon
 
-1. After saving the API key and master picture, the **"Generate favicon"** button will appear.    
-2. Click this button. You will be redirected to the `RealFaviconGenerator.net` website to finalize your icon set.    
-3. On their site, configure the appearance for all platforms (iOS, Android, etc.) to your liking.    
+1. After saving the API key and master picture, the **"Generate favicon"** button will appear.
+2. Click this button. You will be redirected to the `RealFaviconGenerator.net` website to finalize your icon set.
+3. On their site, configure the appearance for all platforms (iOS, Android, etc.) to your liking.
 4. When you are done, click the "Generate and install favicon" button on their site. You will be automatically redirected back to your October CMS backend. Your favicons are now installed in the `storage/app/media/favicon/` directory.
-    
+
 
 #### Step 3: Check for Conflicts
 
-1. After the favicon set has been generated, a new button will become active: **"Scan theme for overlapping tags"**.    
-2. Click this button to scan your active theme files for any pre-existing favicon tags that might cause conflicts.    
-3. If any conflicts are found, the tool will report the exact **file and line number**, allowing you to safely remove the old tags manually.    
+1. After the favicon set has been generated, a new button will become active: **"Scan theme for overlapping tags"**.
+2. Click this button to scan your active theme files for any pre-existing favicon tags that might cause conflicts.
+3. If any conflicts are found, the tool will report the exact **file and line number**, allowing you to safely remove the old tags manually.
 
 ## Displaying the Favicon
 
 To display the favicons on your website, you must add the `faviconTags` component to the `<head>` section of your main Twig layout.
 
-1. Open your main layout file (e.g., `/themes/your-theme/layouts/default.htm`).    
-2. Add the following line just before the closing `</head>` tag:    
+1. Open your main layout file (e.g., `/themes/your-theme/layouts/default.htm`).
+2. Add the following line just before the closing `</head>` tag:
 
 ```twig
 <!DOCTYPE html>
@@ -69,7 +69,7 @@ To display the favicons on your website, you must add the `faviconTags` componen
         <meta charset="utf-8">
         <title>{{ this.page.title }}</title>
         <meta name="description" content="{{ this.page.meta_description }}">
-        
+
         {# ... other meta tags ... #}
 
         {# --- Add the component here --- #}
@@ -88,7 +88,7 @@ The component will automatically inject all the necessary HTML code that was gen
 Access to the plugin's settings page is protected by the following permission, which you can assign to administrator roles as needed:
 
 - `davox.realfavicon.access_favicon_settings`: Allows access to the Real Favicon Generator settings page.
-    
+
 
 ## Credits
 

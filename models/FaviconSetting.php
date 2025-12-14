@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Davox\RealFavicon\Models;
 
 use System\Models\SettingModel;
@@ -31,7 +33,7 @@ class FaviconSetting extends SettingModel
      * @var array Validation rules for the settings.
      */
     public $rules = [
-        'api_key'        => 'required',
+        'api_key' => 'required',
         'master_picture' => 'required',
     ];
 
@@ -39,7 +41,7 @@ class FaviconSetting extends SettingModel
      * @var array Custom validation messages.
      */
     public $customMessages = [
-        'api_key.required'        => 'The API key is required.',
+        'api_key.required' => 'The API key is required.',
         'master_picture.required' => 'The master picture is required.',
     ];
 
@@ -48,6 +50,6 @@ class FaviconSetting extends SettingModel
      */
     public $attachOne = [
         'master_picture' => \System\Models\File::class,
-        'preview_image'  => \System\Models\File::class,
+        'preview_image' => \System\Models\File::class,
     ];
 }

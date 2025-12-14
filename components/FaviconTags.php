@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Davox\RealFavicon\Components;
 
 use Cms\Classes\ComponentBase;
@@ -25,7 +27,7 @@ class FaviconTags extends ComponentBase
     public function componentDetails()
     {
         return [
-            'name'        => 'Favicon Tags',
+            'name' => 'Favicon Tags',
             'description' => 'Injects the generated favicon HTML tags into your layout.',
         ];
     }
@@ -33,7 +35,7 @@ class FaviconTags extends ComponentBase
     /**
      * Executed when the component is run on a page.
      */
-    public function onRun()
+    public function onRun(): void
     {
         $settings = FaviconSetting::instance();
         $this->htmlCode = $settings->html_code;

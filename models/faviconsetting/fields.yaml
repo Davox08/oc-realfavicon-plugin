@@ -46,7 +46,7 @@ tabs:
             placeholder: 'Generate your favicon to see the HTML code here.'
             span: full
             hidden: true
-        
+
         overlapping_markups:
             tab: 'Response'
             type: codeeditor

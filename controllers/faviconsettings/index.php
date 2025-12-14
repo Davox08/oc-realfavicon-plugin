@@ -3,7 +3,7 @@
  * View for the Favicon Settings page.
  */
 ?>
-<?php if (!$this->fatalError) : ?>
+<?php if (! $this->fatalError) : ?>
 
     <div id="settings-form-container">
         <?= $this->makePartial('form') ?>

@@ -46,5 +46,9 @@
     "The following tags were found in your theme files. It is recommended to remove them manually to avoid duplicate tags.": "Se encontraron las siguientes etiquetas en los archivos de su tema. Se recomienda eliminarlas manualmente para evitar etiquetas duplicadas.",
     "File": "Archivo",
     "Line": "Línea",
-    "Conflicting Tag Found": "Etiqueta conflictiva encontrada"
+    "Conflicting Tag Found": "Etiqueta conflictiva encontrada",
+    "There are no overlapping markups to scan for.": "No hay etiquetas superpuestas para escanear.",
+    "Overlapping Markups Detected": "Etiquetas Superpuestas Detectadas",
+    "These are CSS selectors for tags that might already exist in your theme. The component will attempt to avoid duplicating them.": "Estos son selectores CSS para etiquetas que podrían ya existir en tu tema. El componente intentará evitar duplicarlas.",
+    "Generate your favicon to see the HTML code here.": "Genera tu favicon para ver el código HTML aquí."
 }

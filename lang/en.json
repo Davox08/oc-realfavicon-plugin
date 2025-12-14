@@ -46,5 +46,9 @@
     "The following tags were found in your theme files. It is recommended to remove them manually to avoid duplicate tags.": "The following tags were found in your theme files. It is recommended to remove them manually to avoid duplicate tags.",
     "File": "File",
     "Line": "Line",
-    "Conflicting Tag Found": "Conflicting Tag Found"
+    "Conflicting Tag Found": "Conflicting Tag Found",
+    "There are no overlapping markups to scan for.": "There are no overlapping markups to scan for.",
+    "Overlapping Markups Detected": "Overlapping Markups Detected",
+    "These are CSS selectors for tags that might already exist in your theme. The component will attempt to avoid duplicating them.": "These are CSS selectors for tags that might already exist in your theme. The component will attempt to avoid duplicating them.",
+    "Generate your favicon to see the HTML code here.": "Generate your favicon to see the HTML code here."
 }

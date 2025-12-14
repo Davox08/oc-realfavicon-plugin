@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Davox\RealFavicon\Controllers;
 
 use Backend\Classes\Controller;
@@ -51,7 +53,7 @@ class FaviconSettings extends Controller
      * The default action, displays the settings update form.
      * This method internally calls the 'update' action.
      */
-    public function index()
+    public function index(): void
     {
         // Call our update action with a symbolic ID.
         // This is required to prepare the FormController in the correct context.
@@ -62,9 +64,8 @@ class FaviconSettings extends Controller
      * Update action, handles the form logic.
      *
      * @param int|null $recordId The record ID to update.
-     * @return void
      */
-    public function update($recordId = null)
+    public function update($recordId = null): void
     {
         $this->asExtension('FormController')->update($recordId);
         $this->pageTitle = __('Favicon Settings');
@@ -76,7 +77,8 @@ class FaviconSettings extends Controller
      * This method is essential for the FormController to find the settings model.
      *
      * @param int $recordId The record ID.
-     * @return \Davox\RealFavicon\Models\FaviconSetting
+     *
+     * @return FaviconSetting
      */
     public function formFindModelObject($recordId)
     {
@@ -112,7 +114,7 @@ class FaviconSettings extends Controller
             if (empty($settings->api_key)) {
                 throw new Exception(__('API Key is missing. Please enter your API key in the settings.'));
             }
-            if (!$settings->master_picture) {
+            if (! $settings->master_picture) {
                 throw new Exception(__('Master picture is missing. Please upload a master picture.'));
             }
 
@@ -161,14 +163,15 @@ class FaviconSettings extends Controller
         $selectorsFromApi = json_decode($settings->overlapping_markups, true) ?: [];
 
         if (empty($selectorsFromApi)) {
-            \Flash::info('There are no overlapping markups to scan for.');
+            Flash::info(__('There are no overlapping markups to scan for.'));
+
             return;
         }
 
         $templates = array_merge(
             Layout::listInTheme($theme, true)->all(),
             Page::listInTheme($theme, true)->all(),
-            CmsPartial::listInTheme($theme, true)->all()
+            CmsPartial::listInTheme($theme, true)->all(),
         );
 
         foreach ($templates as $template) {
@@ -205,15 +208,15 @@ class FaviconSettings extends Controller
                                     }
                                 }
 
-                                if (!$isCommented) {
-                                    $lineNumber = substr_count($content, "\n", 0, $offset) + 1;
+                                if (! $isCommented) {
+                                    $lineNumber = substr_count($content, "\n", 0, (int) $offset) + 1;
                                     $lineKey = $fileName . ':' . $lineNumber;
 
-                                    if (!isset($foundLines[$lineKey])) {
+                                    if (! isset($foundLines[$lineKey])) {
                                         $findings[] = [
                                             'file' => $fileName,
                                             'line' => $lineNumber,
-                                            'tag'  => trim($tag),
+                                            'tag' => trim($tag),
                                         ];
                                         $foundLines[$lineKey] = true;
                                     }

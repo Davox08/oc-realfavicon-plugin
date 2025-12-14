@@ -15,16 +15,16 @@ $settingsModel = $this->formGetModel();
                 ->hotkey('ctrl+s', 'cmd+s')
                 ->loadingMessage(e(__('Saving...'))) ?>
 
-            <?php if (!empty($settingsModel->api_key) && $settingsModel->master_picture) : ?>
+            <?php if (! empty($settingsModel->api_key) && $settingsModel->master_picture) : ?>
                 <?= Ui::ajaxButton(e(__('Generate favicon')), 'onGenerate')
-                    ->warning()
-                    ->loadingMessage(e(__('Generating...'))) ?>
+                ->warning()
+                ->loadingMessage(e(__('Generating...'))) ?>
             <?php endif; ?>
 
-            <?php if (!empty($settingsModel->overlapping_markups)) : ?>
+            <?php if (! empty($settingsModel->overlapping_markups)) : ?>
                 <?= Ui::ajaxButton(e(__('Scan theme for overlapping tags')), 'onScanForOverlaps')
-                    ->danger()
-                    ->loadingMessage(e(__('Scanning...'))) ?>
+                ->danger()
+                ->loadingMessage(e(__('Scanning...'))) ?>
             <?php endif; ?>
 
             <span class="btn-text">
