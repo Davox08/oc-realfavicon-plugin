@@ -4,8 +4,8 @@
 
         <div class="callout callout-success no-subheader">
             <div class="header">
-                <h3>Scan Complete: No Conflicts Found</h3>
-                <p>Your active theme files appear to be clean of any conflicting favicon tags.</p>
+                <h3><?= __('Scan Complete: No Conflicts Found') ?></h3>
+                <p><?= __('Your active theme files appear to be clean of any conflicting favicon tags.') ?></p>
             </div>
         </div>
 
@@ -13,8 +13,8 @@
 
         <div class="callout callout-warning no-subheader">
             <div class="header">
-                <h3>Warning: Potential Conflicts Found!</h3>
-                <p>The following tags were found in your theme files. It is recommended to remove them manually to avoid duplicate tags.</p>
+                <h3><?= __('Warning: Potential Conflicts Found!') ?></h3>
+                <p><?= __('The following tags were found in your theme files. It is recommended to remove them manually to avoid duplicate tags.') ?></p>
             </div>
         </div>
 
@@ -22,9 +22,9 @@
             <table class="table data">
                 <thead>
                     <tr>
-                        <th class="list-cell-name"><span>File</span></th>
-                        <th class="list-cell-name"><span>Line</span></th>
-                        <th class="list-cell-name"><span>Conflicting Tag Found</span></th>
+                        <th class="list-cell-name"><span><?= __('File') ?></span></th>
+                        <th class="list-cell-name"><span><?= __('Line') ?></span></th>
+                        <th class="list-cell-name"><span><?= __('Conflicting Tag Found') ?></span></th>
                     </tr>
                 </thead>
                 <tbody>

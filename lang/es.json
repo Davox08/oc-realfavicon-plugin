@@ -39,5 +39,12 @@
     "The version of RealFaviconGenerator used for the last generation.": "La versión de RealFaviconGenerator usada para la última generación.",
     "First version of RealFavicon": "Primera versión de RealFavicon",
     "The API key is required.": "La clave de API es requerida.",
-    "The master picture is required.": "La imagen maestra es requerida."
+    "The master picture is required.": "La imagen maestra es requerida.",
+    "Scan Complete: No Conflicts Found": "Escaneo completo: No se encontraron conflictos",
+    "Your active theme files appear to be clean of any conflicting favicon tags.": "Los archivos de su tema activo parecen estar limpios de etiquetas favicon conflictivas.",
+    "Warning: Potential Conflicts Found!": "Advertencia: ¡Se encontraron conflictos potenciales!",
+    "The following tags were found in your theme files. It is recommended to remove them manually to avoid duplicate tags.": "Se encontraron las siguientes etiquetas en los archivos de su tema. Se recomienda eliminarlas manualmente para evitar etiquetas duplicadas.",
+    "File": "Archivo",
+    "Line": "Línea",
+    "Conflicting Tag Found": "Etiqueta conflictiva encontrada"
 }

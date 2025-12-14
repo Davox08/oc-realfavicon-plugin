@@ -39,5 +39,12 @@
     "The version of RealFaviconGenerator used for the last generation.": "The version of RealFaviconGenerator used for the last generation.",
     "First version of RealFavicon": "First version of RealFavicon",
     "The API key is required.": "The API key is required.",
-    "The master picture is required.": "The master picture is required."
+    "The master picture is required.": "The master picture is required.",
+    "Scan Complete: No Conflicts Found": "Scan Complete: No Conflicts Found",
+    "Your active theme files appear to be clean of any conflicting favicon tags.": "Your active theme files appear to be clean of any conflicting favicon tags.",
+    "Warning: Potential Conflicts Found!": "Warning: Potential Conflicts Found!",
+    "The following tags were found in your theme files. It is recommended to remove them manually to avoid duplicate tags.": "The following tags were found in your theme files. It is recommended to remove them manually to avoid duplicate tags.",
+    "File": "File",
+    "Line": "Line",
+    "Conflicting Tag Found": "Conflicting Tag Found"
 }
