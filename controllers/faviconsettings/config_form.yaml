@@ -1,0 +1,21 @@
+# ===================================
+#  Form Behavior Config
+# ===================================
+
+# Record name
+name: Favicon Setting
+
+# Model Form Field configuration
+form: $/davox/realfavicon/models/faviconsetting/fields.yaml
+
+# Model Class name
+modelClass: Davox\RealFavicon\Models\FaviconSetting
+
+# Default redirect location
+defaultRedirect: davox/realfavicon/faviconsettings
+
+# Update page
+update:
+    title: backend::lang.form.update_title
+    redirect: davox/realfavicon/faviconsettings
+    redirectClose: davox/realfavicon/faviconsettings
