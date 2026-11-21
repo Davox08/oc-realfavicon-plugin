@@ -4,4 +4,4 @@ v1.0.1:
     - 'Update localization files'
 v1.0.2:
     - 'Update code style'
-    - 'Update comments'
+    - 'Update comments'v1.0.3: 'Compatibilidad con composer/installers'
