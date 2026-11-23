@@ -1,5 +1,6 @@
 {
     "name": "davox/realfavicon-plugin",
+    "version": "1.0.3",
     "type": "october-plugin",
     "description": "An October CMS plugin that generates a complete, multi-platform favicon set using the RealFaviconGenerator.net service.",
     "homepage": "https://github.com/Davox08/oc-realfavicon-plugin",
