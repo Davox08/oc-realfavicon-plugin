@@ -7,3 +7,5 @@ v1.0.2:
     - 'Update comments'
 v1.0.3:
     - 'Compatibilidad con composer/installers'
+v1.0.4:
+    - 'Corregir sintaxis y salto de línea en version.yaml'
